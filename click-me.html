@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌸💥 Will You Be With Me Again?</title>
+  <style>
+    body,html{margin:0;height:100%;overflow:hidden;background:#fff6fb;display:flex;align-items:center;justify-content:center;}
+    #preflower{animation:pulse 2s infinite ease-in-out;cursor:pointer}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+    #main{display:none;position:relative;width:100%;height:100%;overflow:hidden;background: radial-gradient(1200px 800px at 20% 10%, #f7fff1, transparent 70%),radial-gradient(1000px 700px at 80% 0%, #e6f7ff, transparent 70%),radial-gradient(1200px 800px at 50% 100%, #fff6fb, transparent 70%),linear-gradient(135deg,#fff,#fff);}
+    .card{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#40384a}
+    h1{font-size:clamp(28px,5vw,46px);margin:10px 0 6px}
+    .sub{font-size:clamp(14px,2.8vw,18px);opacity:.8;margin-top:6px}
+    .typewriter{border-right:3px solid #ff6b9c;white-space:nowrap;overflow:hidden;animation:caret 1s step-end infinite;}
+    @keyframes caret{50%{border-color:transparent}}
+    #fw{position:fixed;inset:0;z-index:0;display:none;}
+    .heart{position:fixed;font-size:20px;animation:rise 2.2s ease forwards;pointer-events:none}
+    @keyframes rise{from{transform:translateY(0) scale(.8);opacity:1}to{transform:translateY(-140px) scale(1.6);opacity:0}}
+    :root{
+      --bg1:#fff6fb; --bg2:#e6f7ff; --bg3:#f7fff1; --ink:#40384a; --accent:#ff6b9c; --accent-2:#7c5cff; --good:#39c07f;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      overflow:hidden;
+      background: radial-gradient(1200px 800px at 20% 10%, var(--bg3), transparent 70%),
+                  radial-gradient(1000px 700px at 80% 0%, var(--bg2), transparent 70%),
+                  radial-gradient(1200px 800px at 50% 100%, var(--bg1), transparent 70%),
+                  linear-gradient(135deg,#fff,#fff);
+    }
+    .flowers{position:fixed; inset:0; pointer-events:none; overflow:hidden; filter: drop-shadow(0 2px 0 rgba(0,0,0,.04)); display:none;}
+    .flower{ position:absolute; width:80px; height:80px; opacity:.85; animation: floatUp linear infinite; }
+    @keyframes floatUp{
+      from{ transform: translateY(110vh) rotate(0deg) scale(.9); opacity:0 }
+      10%{opacity:.9}
+      to{ transform: translateY(-15vh) rotate(360deg) scale(1.05); opacity:0 }
+    }
+    .card{
+      position:relative; width:min(680px,92vw); margin: 8vh auto 0; padding:28px 28px 34px; border-radius:28px;
+      background:rgba(255,255,255,.75); backdrop-filter: blur(8px);
+      box-shadow: 0 20px 60px rgba(62, 33, 105, .12);
+      text-align:center;
+    }
+    h1{ font-size: clamp(28px, 5vw, 46px); margin: 10px 0 6px; letter-spacing:.4px }
+    .sub{ font-size: clamp(14px, 2.8vw, 18px); opacity:.8; margin-top:6px }
+    .typewriter{ display:inline-block; border-right: 3px solid var(--accent); white-space:nowrap; overflow:hidden; animation: caret 1s step-end infinite; }
+    @keyframes caret { 50%{ border-color: transparent } }
+    .btns{ display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:18px }
+    .btn{
+      appearance:none; border:0; cursor:pointer; padding:12px 18px; border-radius:999px; font-weight:700;
+      transition: transform .12s ease, box-shadow .2s ease, background .2s ease; box-shadow:0 6px 16px rgba(0,0,0,.08);
+    }
+    .btn-yes{ background:linear-gradient(135deg, var(--good), #8de1b7); color:white }
+    .btn-yes:hover{ transform: translateY(-2px) scale(1.02)}
+    .btn-maybe{ background:linear-gradient(135deg, #ffd1e1, #dcd3ff); color:#53406a }
+    .btn-maybe:hover{ transform: translateY(-2px)}
+    .footnote{ font-size:12px; opacity:.65; margin-top:18px }
+    .heart{ position: fixed; font-size: 20px; animation: rise 2.2s ease forwards; pointer-events:none }
+    @keyframes rise{ from{ transform: translateY(0) scale(.8); opacity:1 } to{ transform: translateY(-140px) scale(1.6); opacity:0 } }
+    #fw{ position: fixed; inset:0; z-index:0; }
+    .layers{ position:fixed; inset:0; z-index:1 }
+    .top{ position:relative; z-index:2 }
+    /* Preflower spin out */
+    @keyframes spinOut{ to{transform:rotate(720deg) scale(0); opacity:0;} }
+  </style>
+</head>
+<body>
+  <!-- Preloader flower -->
+  <div id="preflower">
+    <svg viewBox="0 0 100 100" width="120" height="120">
+      <defs>
+        <radialGradient id="g1" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#fff"/>
+          <stop offset="60%" stop-color="#ffd6e8"/>
+          <stop offset="100%" stop-color="#ff9fc1"/>
+        </radialGradient>
+      </defs>
+      <g transform="translate(50,50)">
+        <ellipse rx="14" ry="28" transform="rotate(0) translate(0,-22)" fill="url(#g1)"/>
+        <ellipse rx="14" ry="28" transform="rotate(72) translate(0,-22)" fill="url(#g1)"/>
+        <ellipse rx="14" ry="28" transform="rotate(144) translate(0,-22)" fill="url(#g1)"/>
+        <ellipse rx="14" ry="28" transform="rotate(216) translate(0,-22)" fill="url(#g1)"/>
+        <ellipse rx="14" ry="28" transform="rotate(288) translate(0,-22)" fill="url(#g1)"/>
+        <circle r="10" fill="#ffe277" stroke="#f6c23e" stroke-width="2"/>
+      </g>
+    </svg>
+  </div>
+  <canvas id="fw" aria-hidden="true"></canvas>
+  <div class="flowers layers" aria-hidden="true" id="flowers"></div>
+  <main class="top" id="main">
+    <section class="card" role="dialog" aria-label="Cute Proposal">
+      <div style="font-size:42px">🌸✨🎆</div>
+      <h1>
+        <span class="typewriter" id="tw"></span>
+      </h1>
+      <p class="sub">From <strong id="from-name">R</strong> to <strong id="to-name">Hazim</strong> — because some sparks never fade.</p>
+      <div class="btns">
+        <a
+          class="btn btn-yes"
+          id="yes"
+          href="https://wa.me/+62895611187051?text=Yes!%20Let's%20try%20again%20💚"
+          target="_blank"
+          rel="noopener"
+        >Yes, let's try again 💚</a>
+        <button class="btn btn-maybe" id="maybe">Umm… maybe later</button>
+      </div>
+      <div class="footnote">Tip: click anywhere for extra fireworks ✨</div>
+    </section>
+  </main>
+  <!-- Reusable flower SVG template -->
+  <template id="flower-svg">
+    <svg viewBox="0 0 100 100" width="90" height="90" aria-hidden="true">
+      <defs>
+        <radialGradient id="g1" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#fff"/>
+          <stop offset="60%" stop-color="#ffd6e8"/>
+          <stop offset="100%" stop-color="#ff9fc1"/>
+        </radialGradient>
+        <radialGradient id="g2" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#fff"/>
+          <stop offset="60%" stop-color="#e3d9ff"/>
+          <stop offset="100%" stop-color="#b7a6ff"/>
+        </radialGradient>
+      </defs>
+      <g transform="translate(50,50)">
+        <g fill="url(#g1)">
+          <ellipse rx="14" ry="28" transform="rotate(0) translate(0,-22)"/>
+          <ellipse rx="14" ry="28" transform="rotate(72) translate(0,-22)"/>
+          <ellipse rx="14" ry="28" transform="rotate(144) translate(0,-22)"/>
+          <ellipse rx="14" ry="28" transform="rotate(216) translate(0,-22)"/>
+          <ellipse rx="14" ry="28" transform="rotate(288) translate(0,-22)"/>
+        </g>
+        <g fill="url(#g2)" opacity=".9">
+          <ellipse rx="10" ry="20" transform="rotate(36) translate(0,-16)"/>
+          <ellipse rx="10" ry="20" transform="rotate(108) translate(0,-16)"/>
+          <ellipse rx="10" ry="20" transform="rotate(180) translate(0,-16)"/>
+          <ellipse rx="10" ry="20" transform="rotate(252) translate(0,-16)"/>
+          <ellipse rx="10" ry="20" transform="rotate(324) translate(0,-16)"/>
+        </g>
+        <circle r="10" fill="#ffe277" stroke="#f6c23e" stroke-width="2"/>
+      </g>
+    </svg>
+  </template>
+  <script>
+    // Helper
+    const $ = (sel, el=document) => el.querySelector(sel);
+
+    // Elements
+    const preflower = $('#preflower');
+    const main = $('#main');
+    const tw = $('#tw');
+    const flowerLayer = $('#flowers');
+    const canvas = document.getElementById('fw');
+    const ctx = canvas.getContext('2d');
+    const btnYes = document.getElementById('yes');
+    const btnMaybe = document.getElementById('maybe');
+
+    // Hide main, canvas, and flowers initially
+    main.style.display = 'none';
+    canvas.style.display = 'none';
+    flowerLayer.style.display = 'none';
+
+    // Typewriter
+    const proposalText = "Will you be with me again?";
+    let i = 0;
+    function typeLoop(){
+      tw.textContent = proposalText.slice(0, i++);
+      if(i<=proposalText.length){ setTimeout(typeLoop, 70); }
+      else{ tw.style.borderRightColor = 'transparent'; }
+    }
+
+    // Personalize names by URL params
+    const url = new URL(location.href);
+    const fromName = url.searchParams.get('from');
+    const toName = url.searchParams.get('to');
+    if(fromName) $('#from-name').textContent = fromName;
+    if(toName) $('#to-name').textContent = toName;
+
+    // Floating flowers
+    function addFlower(x, delay){
+      const tpl = $('#flower-svg');
+      const node = tpl.content.firstElementChild.cloneNode(true);
+      const wrap = document.createElement('div');
+      wrap.className = 'flower';
+      wrap.style.left = (x ?? (Math.random()*100)) + 'vw';
+      wrap.style.animationDuration = (14 + Math.random()*10) + 's';
+      wrap.style.animationDelay = (delay ?? Math.random()*-18) + 's';
+      wrap.style.transform = `translateY(${100 + Math.random()*80}vh)`;
+      wrap.appendChild(node);
+      flowerLayer.appendChild(wrap);
+      setTimeout(()=>wrap.remove(), 26000);
+    }
+    let flowerInterval;
+
+    // Fireworks (canvas particles)
+    let W, H, dpr;
+    function resize(){
+      dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      W = canvas.width = Math.floor(innerWidth * dpr);
+      H = canvas.height = Math.floor(innerHeight * dpr);
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+    }
+    addEventListener('resize', resize);
+
+    const particles = new Set();
+    function fire(x, y){
+      const count = 80;
+      const speed = 2.4 * dpr;
+      for(let i=0;i<count;i++){
+        const a = (i / count) * Math.PI * 2 + Math.random()*0.1;
+        const v = speed * (0.6 + Math.random()*0.9);
+        particles.add({
+          x, y, vx: Math.cos(a)*v, vy: Math.sin(a)*v, life: 60 + Math.random()*20,
+          r: 2 + Math.random()*2
+        });
+      }
+    }
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      for(const p of Array.from(particles)){
+        p.x += p.vx; p.y += p.vy; p.vy += 0.03 * dpr;
+        p.vx *= 0.99; p.vy *= 0.99;
+        p.life -= 1;
+        if(p.life <= 0 || p.y > H + 20){ particles.delete(p); continue; }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `hsla(${(p.x+p.y)%360}, 100%, 60%, ${Math.max(0, p.life/60)})`;
+        ctx.fill();
+      }
+      requestAnimationFrame(step);
+    }
+    let fireworkInterval;
+
+    // Buttons
+    function poofHearts(x,y){
+      for(let i=0;i<16;i++){
+        const h = document.createElement('div');
+        h.className='heart';
+        h.textContent = ['❤️','💖','💗','💓','💞'][i%5];
+        h.style.left = (x + (Math.random()*60-30)) + 'px';
+        h.style.top = (y + (Math.random()*30-15)) + 'px';
+        h.style.animationDelay = (Math.random()*0.4)+'s';
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(), 2500);
+      }
+    }
+
+    btnYes.addEventListener('click', (e)=>{
+      const rect = e.currentTarget.getBoundingClientRect();
+      const cx = rect.left + rect.width/2; const cy = rect.top + rect.height/2;
+      poofHearts(cx, cy);
+      fire(cx * dpr, (cy - 40) * dpr);
+
+      // Sweet success message
+      const banner = document.createElement('div');
+      banner.textContent = "Yay! Let's write a new chapter together 💚";
+      banner.style.position='fixed'; banner.style.left='50%'; banner.style.top='8%';
+      banner.style.transform='translateX(-50%)';
+      banner.style.background='linear-gradient(135deg,#39c07f,#8de1b7)';
+      banner.style.color='#fff'; banner.style.padding='12px 18px'; banner.style.borderRadius='999px';
+      banner.style.boxShadow='0 10px 30px rgba(0,0,0,.12)'; banner.style.fontWeight='700';
+      banner.style.zIndex='5';
+      document.body.appendChild(banner);
+      setTimeout(()=> banner.remove(), 2400);
+    });
+
+    btnMaybe.addEventListener('mouseenter', ()=>{
+      const p = btnMaybe.parentElement.getBoundingClientRect();
+      const b = btnMaybe.getBoundingClientRect();
+      const nx = Math.max(0, Math.min(p.width - b.width, Math.random()*(p.width - b.width)));
+      const ny = Math.max(0, Math.min(p.height - b.height, Math.random()*(p.height - b.height)));
+      btnMaybe.style.position='relative';
+      btnMaybe.style.left = nx - (b.left - p.left) + 'px';
+      btnMaybe.style.top = ny - (b.top - p.top) + 'px';
+    });
+
+    // Preflower click logic
+    preflower.addEventListener('click', ()=>{
+      preflower.style.animation = 'spinOut 1s forwards';
+      setTimeout(()=>{
+        preflower.style.display = 'none';
+        main.style.display = 'block';         // <-- fix
+        canvas.style.display = 'block';       // <-- fix
+        flowerLayer.style.display = 'block';  // <-- fix
+        resize();
+        i = 0;
+        typeLoop();
+        step();
+        // Start floating flowers
+        for(let n=0;n<22;n++){ addFlower(); }
+        flowerInterval = setInterval(()=> addFlower(), 1700);
+        // Start fireworks
+        fireworkInterval = setInterval(()=>{
+          fire(Math.random()*W, Math.random()*H*0.6 + H*0.1);
+        }, 1400);
+        // Click for fireworks
+        addEventListener('click', (e)=>{
+          if(e.target !== preflower) {
+            const x = e.clientX * dpr, y = e.clientY * dpr;
+            fire(x, y);
+          }
+        });
+      }, 950);
+    });
+    const waNumber = '62895611187051'; // <-- your WhatsApp number, no + or spaces
+    const waMsg = encodeURIComponent(
+      `Yes! Let's try again 💚\nFrom: ${fromName || 'Me'}\nTo: ${toName || 'You'}`
+    );
+    btnYes.href = `https://wa.me/${waNumber}?text=${waMsg}`;
+  </script>
+</body>
+</html>

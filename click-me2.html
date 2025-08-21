@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌸 Proposal 🌸</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #ffe6f0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    #preloader {
+      font-size: 100px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    #content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    #proposalText {
+      font-size: 2em;
+      color: #d63384;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      from { transform: translateY(100vh) rotate(0deg); }
+      to { transform: translateY(-10vh) rotate(360deg); }
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    /* runaway button */
+    #yesButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #ff85a2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="preloader">🌸</div>
+
+  <canvas id="fireworks"></canvas>
+
+  <div id="content">
+    <div id="proposalText">Will you be with me again? 💖</div>
+    <button id="yesButton">Yes!</button>
+  </div>
+
+  <script>
+    const preloader = document.getElementById("preloader");
+    const content = document.getElementById("content");
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createFirework(x, y) {
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x, y,
+          angle: Math.random() * 2 * Math.PI,
+          speed: random(2, 7),
+          radius: 2,
+          alpha: 1
+        });
+      }
+    }
+
+    function updateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.x += Math.cos(p.angle) * p.speed;
+        p.y += Math.sin(p.angle) * p.speed;
+        p.alpha -= 0.01;
+        ctx.fillStyle = `rgba(255, ${Math.floor(random(100,255))}, ${Math.floor(random(100,255))}, ${p.alpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+        ctx.fill();
+        if (p.alpha <= 0) particles.splice(i, 1);
+      });
+      requestAnimationFrame(updateParticles);
+    }
+    updateParticles();
+
+    preloader.addEventListener("click", () => {
+      preloader.style.transition = "transform 1s, opacity 1s";
+      preloader.style.transform = "rotate(720deg) scale(0)";
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+        content.style.display = "flex";
+        createFirework(window.innerWidth/2, window.innerHeight/2);
+        for (let i = 0; i < 15; i++) createFloatingFlower();
+      }, 1000);
+    });
+
+    function createFloatingFlower() {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.innerText = "🌸";
+      flower.style.left = Math.random() * window.innerWidth + "px";
+      flower.style.top = "100vh";
+      flower.style.animationDuration = random(8, 15) + "s";
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 15000);
+      setTimeout(createFloatingFlower, random(1000, 3000));
+    }
+
+    // runaway button logic
+    const button = document.getElementById("yesButton");
+    button.addEventListener("mouseover", () => {
+      const offsetX = random(-200, 200);
+      const offsetY = random(-200, 200);
+      button.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    });
+  </script>
+</body>
+</html>
